@@ -1,0 +1,36 @@
+.counter {
+   display: grid;
+   justify-items: center;
+   align-items: center;
+   padding: 10px;
+   row-gap: 20px;
+   margin: 0 auto;
+   width: 300px;
+   height: 350px;
+   border-radius: 5%;
+}
+
+.display {
+   display: grid;
+   width: 250px;
+   height: 200px;
+   background-color: #fff;
+   border-radius: 8%;
+   justify-content: center;
+   align-items: center;
+   font-size: 40px;
+}
+
+.counterValue {
+   transform: scale(2);
+   color: #EC0E51;
+}
+
+.buttons {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   justify-content: center;
+   align-items: center;
+   width: 250px;
+   column-gap: 20px;
+}
