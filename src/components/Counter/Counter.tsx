@@ -6,7 +6,6 @@ type CounterType = {
    counter: number
    increment: () => void
    reset: () => void
-
 }
 
 const Counter = ({ counter, increment,reset }: CounterType) => {
