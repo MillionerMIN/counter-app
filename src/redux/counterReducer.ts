@@ -1,10 +1,6 @@
-import { Dispatch } from "redux";
-import { AppRootStateType } from "./store";
-
 export const INCRIMENT = 'INCRIMENT';
 export const RESET = 'RESET';
 const SET_VALUE_FROM_LOCAL_STORAGE = 'SET_VALUE_FROM_LOCAL_STORAGE';
-
 
 export type ActionType = ReturnType<typeof incValueAC>
    | ReturnType<typeof resValueAC>
@@ -35,16 +31,16 @@ export const setValueFromLocalStorageAC = (value: number) => ({ type: SET_VALUE_
 
 //THUNK
 
-export const incValueTC = () => (dispatch: Dispatch, getState: () => AppRootStateType) => {
-   let currentValue = getState().counterState.value;
-   localStorage.setItem('counterValue', JSON.stringify(currentValue + 1))
-   dispatch(incValueAC())
-}
+// export const incValueTC = () => (dispatch: Dispatch, getState: () => AppRootStateType) => {
+//    let currentValue = getState().counterState.value;
+//    localStorage.setItem('counterValue', JSON.stringify(currentValue + 1))
+//    dispatch(incValueAC())
+// }
 
-export const setValueFromLocalStorageTC = () => (dispatch: Dispatch) => {
-   const velueAsString = localStorage.getItem('counterValue');
-   if (velueAsString) {
-      const newValue = JSON.parse(velueAsString);
-      dispatch(setValueFromLocalStorageAC(newValue));
-   }
-}
+// export const setValueFromLocalStorageTC = () => (dispatch: Dispatch) => {
+//    const velueAsString = localStorage.getItem('counterValue');
+//    if (velueAsString) {
+//       const newValue = JSON.parse(velueAsString);
+//       dispatch(setValueFromLocalStorageAC(newValue));
+//    }
+// }

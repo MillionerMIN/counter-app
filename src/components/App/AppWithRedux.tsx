@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { initilitionStateType, RESET, incValueAC, incValueTC, setValueFromLocalStorageTC } from '../../redux/counterReducer';
+import { incValueAC, initilitionStateType, RESET } from '../../redux/counterReducer';
 import { AppRootStateType } from '../../redux/store';
 import { Display } from '../Display/Display';
 import s from './App.module.css';
@@ -8,26 +8,22 @@ import s from './App.module.css';
 
 
 const AppWithRedux = React.memo(function () {
-  const counter = useSelector<AppRootStateType, initilitionStateType>(state => state.counterState)
+  const counter = useSelector<AppRootStateType, initilitionStateType>(state => state.counter)
 
   const dispatch = useDispatch()
 
-useEffect(() => {
-  dispatch(setValueFromLocalStorageTC())
-}, [])
-
-const inc = () => {
-  dispatch(incValueTC())
-}
+  const inc = () => {
+    dispatch(incValueAC())
+  }
 
   function reset() {
-      dispatch({ type: RESET })
+    dispatch({ type: RESET })
   }
 
   return (
     <div className={s.app}>
       <div className={s.wrapper}>
-         <Display value={counter.value} increment={inc} reset={reset} />
+        <Display value={counter.value} increment={inc} reset={reset} />
       </div>
     </div>
   )
