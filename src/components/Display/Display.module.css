@@ -19,6 +19,7 @@
    justify-content: center;
    align-items: center;
    font-size: 40px;
+   box-shadow: 4px 38px 62px rgba(112, 111, 111, .3);
 }
 
 .counterValue {

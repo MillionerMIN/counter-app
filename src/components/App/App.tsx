@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Counter } from '../Counter/Counter';
+import { Display } from '../Display/Display';
 import s from './App.module.css';
 
 function App() {
   let [counter, setCounter] = useState<number>(0);
+
 
   useEffect(() => {
     const velueAsString = localStorage.getItem('counterValue');
@@ -16,18 +17,19 @@ function App() {
   useEffect(() => {
     localStorage.setItem('counterValue', JSON.stringify(counter))
   }, [counter]);
- 
+
   const minValue = 0,
     maxValue = 5;
 
-  function inc() {
-    let newCounter = counter++;
-    if (newCounter > maxValue) {
-      newCounter = maxValue
+  const inc = () => {
+    let newValue = counter++;
+    if (newValue > maxValue) {
+      newValue = maxValue
     } else {
-      setCounter(newCounter)
+      setCounter(newValue)
     }
   }
+
 
   function reset() {
     setCounter(minValue)
@@ -36,7 +38,7 @@ function App() {
   return (
     <div className={s.app}>
       <div className={s.wrapper}>
-        <Counter counter={counter} increment={inc} reset={reset} />
+        <Display value={counter} increment={inc}  reset={reset}/>
       </div>
     </div>
   )
